@@ -74,7 +74,8 @@ jobs:
       run: |
         pwd
         ls -l
-        cd ../magic/
+        cd magic/
+        ls -l
         mono "../nostrand/bin/x64/Debug/net471/Nostrand.exe" "build/bootstrap"
        
     
