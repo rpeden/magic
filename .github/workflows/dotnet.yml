@@ -52,28 +52,30 @@ jobs:
       uses: actions/checkout@v2
       with:
         repository: nasser/Magic.Runtime
-        path: ./magic
+        path: ./Magic.Runtime
         
     # Build Clojure.Runtime
     - name: Generate Clojure.Runtime assemblies
       run: |
         cd Clojure.Runtime/
         dotnet build
+        
     # Build Clojure.Runtime inside magic folder
     - name: Generate Clojure.Runtime assemblies of magic
       run: |
+        ln -s ./Magic.Runtime/Magic.Runtime ./magic/Magic.Runtime
         cd magic/Magic.Runtime/
         dotnet build
+        
     # Build Magic with Nostrand repo DLLs (old Dlls)
     - name: Build Nostrand
       run: |
         cd nostrand/
         dotnet build
+        
     # Compile magic to dll with old Nostrand version
     - name: Compile Magic using Nostrand
       run: |
-        pwd
-        ls -l
         cd magic/
         ls -l
         mono "../nostrand/bin/x64/Debug/net471/Nostrand.exe" "build/bootstrap"
