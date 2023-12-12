@@ -94,7 +94,9 @@ jobs:
     # Compile magic to dll with new nostrand (self-hosting cycle complete)
     - name: Recompile Magic with the new Nostrand version
       run: |
-        cd magic/
+        pwd
+        ls -l
+        cd ../magic/
         rm -rf bootstrap/
         mono "../nostrand/bin/x64/Debug/net471/Nostrand.exe" "build/bootstrap"
    # Store the bootstrap folder with the new assemblies as artifact for 90 days
