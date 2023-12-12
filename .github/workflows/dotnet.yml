@@ -72,8 +72,11 @@ jobs:
     # Compile magic to dll with old Nostrand version
     - name: Compile Magic using Nostrand
       run: |
-        cd magic/
+        pwd
+        ls -l
+        cd ../magic/
         mono "../nostrand/bin/x64/Debug/net471/Nostrand.exe" "build/bootstrap"
+       
     
     # Copy Magic dll to nostrand
     - name: Copy new Magic dlls in bootstrap to Nostrand reference
@@ -94,9 +97,7 @@ jobs:
     # Compile magic to dll with new nostrand (self-hosting cycle complete)
     - name: Recompile Magic with the new Nostrand version
       run: |
-        pwd
-        ls -l
-        cd ../magic/
+        cd magic/
         rm -rf bootstrap/
         mono "../nostrand/bin/x64/Debug/net471/Nostrand.exe" "build/bootstrap"
    # Store the bootstrap folder with the new assemblies as artifact for 90 days
