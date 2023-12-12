@@ -89,8 +89,8 @@ jobs:
         fi
         cp Clojure.Runtime/bin/Debug/netstandard2.0/* nostrand/references-netstandard/
         cp Clojure.Runtime/bin/Debug/net471/* nostrand/references-net4x/
-        cp Magic.Runtime/bin/Debug/netstandard2.0/* nostrand/references-netstandard/
-        cp Magic.Runtime/bin/Debug/net471/* nostrand/references-net4x/
+        cp Magic.Runtime/Magic.Runtime/bin/Debug/netstandard2.0/* nostrand/references-netstandard/
+        cp Magic.Runtime/Magic.Runtime/'bin/Debug/net471/* nostrand/references-net4x/
     # Rebuild Nostrand using the new magic DLLs
     - name: Rebuild Nostrand (with new Magic dlls)
       run: |
