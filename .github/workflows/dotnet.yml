@@ -48,6 +48,12 @@ jobs:
         ref: ${{ env.BRANCH_NAME }}
         path: ./magic
 
+    - name: Checkout Magic Runtime
+      uses: actions/checkout@v2
+      with:
+        repository: nasser/Magic.Runtime
+        path: ./magic
+        
     # Build Clojure.Runtime
     - name: Generate Clojure.Runtime assemblies
       run: |
